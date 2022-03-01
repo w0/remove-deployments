@@ -45,7 +45,7 @@ process {
         
         $Deployments | ForEach-Object {
             Write-Progress -Id 1 -Parent 0 -Activity ('Removing: {0}' -f $_.AssignmentName)
-            Remove-CMApplicationDeployment -InputObject $_
+            Remove-CMApplicationDeployment -InputObject $_ -Confirm:$false -Force:$true
         }
     }
 }
